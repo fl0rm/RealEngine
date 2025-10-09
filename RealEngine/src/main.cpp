@@ -1,8 +1,11 @@
 ﻿#include "core/launcher.h"
+#include <crtdbg.h>
 
 int main()
 {
-    Core::Launcher* engine = new Core::Launcher();
+    _CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
 
-    return engine ? engine->exec() : 1;
+    Core::Launcher engine;
+
+    return engine.exec();
 }

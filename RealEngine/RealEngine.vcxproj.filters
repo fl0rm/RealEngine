@@ -24,6 +24,12 @@
     <ClCompile Include="src\objects\place.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
+    <ClCompile Include="src\core\rendering_frame.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="src\shader\shader_gen.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\core\launcher.h">
@@ -38,5 +44,12 @@
     <ClInclude Include="src\core\rendering_frame.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
+    <ClInclude Include="src\shader\shader_gen.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="src\shader\defualt.vert" />
+    <None Include="src\shader\defualt.frag" />
   </ItemGroup>
 </Project>

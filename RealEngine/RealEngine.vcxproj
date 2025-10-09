@@ -110,6 +110,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -125,6 +126,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -134,14 +136,21 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="src\core\launcher.cpp" />
+    <ClCompile Include="src\core\rendering_frame.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\objects\place.cpp" />
+    <ClCompile Include="src\shader\shader_gen.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\core\rendering_frame.h" />
     <ClInclude Include="src\objects\basic_object.h" />
     <ClInclude Include="src\core\launcher.h" />
     <ClInclude Include="src\objects\place.h" />
+    <ClInclude Include="src\shader\shader_gen.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="src\shader\defualt.frag" />
+    <None Include="src\shader\defualt.vert" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
