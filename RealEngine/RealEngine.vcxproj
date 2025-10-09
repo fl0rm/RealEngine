@@ -138,6 +138,7 @@
     <ClCompile Include="src\objects\place.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\core\rendering_frame.h" />
     <ClInclude Include="src\objects\basic_object.h" />
     <ClInclude Include="src\core\launcher.h" />
     <ClInclude Include="src\objects\place.h" />
