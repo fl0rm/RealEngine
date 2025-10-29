@@ -1,7 +1,7 @@
 
 #include "launcher.h"
 
-
+#include <SDL3/SDL_opengl.h>
 
 
 namespace Core {
@@ -10,38 +10,33 @@ namespace Core {
 	//------------------------------
 	Launcher::Launcher() {
 
-		// Instanse GLFW
+		// Instanse SDL
 		//------------------------------
-		if (!glfwInit())
-			return;
+		SDL_Init(SDL_INIT_VIDEO);
 
-		glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
-		glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
-		glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+		SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_CORE);
+		SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 3);
+		SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 3);
+		SDL_GL_SetAttribute(SDL_GL_STENCIL_SIZE, 8);
 
 		// Instanse description monitor
 		//------------------------------
-		used_monitor = glfwGetPrimaryMonitor();
-		if (!used_monitor)
-			return;
+		display_mode = SDL_GetCurrentDisplayMode(1);
 
 		// Instanse monitor size
 		//------------------------------
-		const GLFWvidmode* vid_mode = glfwGetVideoMode(used_monitor);
-		if (!vid_mode)
-			return;
-
-		width	= vid_mode->width;
-		height	= vid_mode->height;
+		
+		width	= display_mode->w;
+		height	= display_mode->h;
 
 		// Create window
-		//------------------------------
-		window = glfwCreateWindow(width, height, "Real Engine", nullptr, nullptr);
+		///------------------------------
+		window = SDL_CreateWindow("RealEngine", width, height, SDL_WINDOW_OPENGL);
 
 		if (!window)
 			return ;
 
-		glfwMakeContextCurrent(window);
+		context = SDL_GL_CreateContext(window);
 
 		// Instanse GLEW
 		//------------------------------
@@ -57,25 +52,35 @@ namespace Core {
 	// Destuctor
 	//------------------------------
 	Launcher::~Launcher() {
-		glfwTerminate();
+		SDL_GL_DestroyContext(context);
+		SDL_Quit();
+		
 		if (output_frame)
 			delete output_frame;
 	}
 
+	// Main executable func
+	//------------------------------
 	int Launcher::exec() {
 
-		
+
 
 		// Main cycle
 		//------------------------------
-		while (!glfwWindowShouldClose(window)) {
+		SDL_Event windowEvent;
+		while (true) {
 			glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
 			glClear(GL_COLOR_BUFFER_BIT);
 
+			if (SDL_PollEvent(&windowEvent))
+			{
+				if (windowEvent.type == SDL_EVENT_QUIT) break;
+
+			}
+
 			output_frame->Draw();
 
-			glfwSwapBuffers(window);
-			glfwPollEvents();
+			SDL_GL_SwapWindow(window);
 		}
 
 		return 0;

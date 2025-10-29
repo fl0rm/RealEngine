@@ -1,7 +1,7 @@
 #pragma once
 
 #include <GL\glew.h>
-#include <GLFW\glfw3.h>
+#include <SDL3/SDL.h>
 
 #include "rendering_frame.h"
 
@@ -21,8 +21,9 @@ namespace Core {
 		int exec();
 
 	private:
-		GLFWwindow* window				= nullptr;
-		GLFWmonitor* used_monitor		= nullptr;
+		SDL_Window*		window			= nullptr;
+		SDL_GLContext	context;
+		const SDL_DisplayMode* display_mode;
 
 		RenderingFrame* output_frame	= nullptr;
 	};

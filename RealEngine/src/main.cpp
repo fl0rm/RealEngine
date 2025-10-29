@@ -1,7 +1,7 @@
 ﻿#include "core/launcher.h"
 #include <crtdbg.h>
 
-#define TEST
+//#define TEST
 
 #ifndef TEST
 
