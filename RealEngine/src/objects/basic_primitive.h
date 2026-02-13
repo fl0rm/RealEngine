@@ -5,12 +5,12 @@
 
 namespace Object {
 
-	class BasicObject {
+	class BasicPrimitive {
 	protected:
 
-		BasicObject() : center{} {}
+		BasicPrimitive() : center{} {}
 
-		BasicObject(glm::vec3 center) : center{ center } {}
+		BasicPrimitive(glm::vec3 center) : center{ center } {}
 
 	private:
 		glm::vec3 center;

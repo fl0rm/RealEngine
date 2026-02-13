@@ -1,16 +1,13 @@
 #pragma once
 
-#include <GL\glew.h>
+#include <GL/glew.h>
 #include <SDL3/SDL.h>
 
+#include "main_window.h"
 #include "rendering_frame.h"
+#include "event_handler/mouse_movement.h"
 
 namespace Core {
-
-	namespace {
-		GLuint width;
-		GLuint height;
-	}
 
 	class Launcher {
 	public:
@@ -21,10 +18,8 @@ namespace Core {
 		int exec();
 
 	private:
-		SDL_Window*		window			= nullptr;
-		SDL_GLContext	context;
-		const SDL_DisplayMode* display_mode;
-
+		Window*			window			= nullptr;
 		RenderingFrame* output_frame	= nullptr;
+		MouseMovement*	mouse_listener	= nullptr;
 	};
 }

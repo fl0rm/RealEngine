@@ -4,17 +4,26 @@
 #include <glm.hpp>
 
 #include "camera.h"
+//#include "mouse_movement.h"
 
 namespace Core {
 
+	class RenderingFrame;
+
 	namespace {
+		RenderingFrame* discription_frame = nullptr;
+
 		GLfloat* vertices;
 		GLuint count_of_vertices;
 	}
 
 	class RenderingFrame {
 	public:
-		RenderingFrame(glm::uvec2 win_size);
+
+		static RenderingFrame* InstanseDiscription(glm::ivec2 size);
+		static void DeleteDiscription();
+
+		RenderingFrame(glm::ivec2 win_size);
 
 		~RenderingFrame();
 

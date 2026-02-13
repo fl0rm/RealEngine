@@ -71,11 +71,11 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>C:\Users\Mihail\Documents\!frameworks\SDL3-3.2.24\include;C:\Users\Mihail\Documents\!frameworks\glm;C:\Users\Mihail\Documents\!frameworks\glfw-3.4.bin.WIN64\include;C:\Users\Mihail\Documents\!frameworks\glew-2.1.0\include;$(IncludePath)</IncludePath>
+    <IncludePath>C:\Users\Mihail\Documents\!frameworks\boost_1_89_0;C:\Users\Mihail\Documents\!frameworks\SDL3-3.2.24\include;C:\Users\Mihail\Documents\!frameworks\glm;C:\Users\Mihail\Documents\!frameworks\glfw-3.4.bin.WIN64\include;C:\Users\Mihail\Documents\!frameworks\glew-2.1.0\include;$(IncludePath)</IncludePath>
     <LibraryPath>C:\Users\Mihail\Documents\!frameworks\SDL3-3.2.24\lib\x64;C:\Users\Mihail\Documents\!frameworks\glew-2.1.0\lib\Release\x64;C:\Users\Mihail\Documents\!frameworks\glfw-3.4.bin.WIN64\lib-vc2022;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <IncludePath>C:\Users\Mihail\Documents\!frameworks\SDL3-3.2.24\include;C:\Users\Mihail\Documents\!frameworks\glm;C:\Users\Mihail\Documents\!frameworks\glfw-3.4.bin.WIN64\include;C:\Users\Mihail\Documents\!frameworks\glew-2.1.0\include;$(IncludePath)</IncludePath>
+    <IncludePath>C:\Users\Mihail\Documents\!frameworks\boost_1_89_0;C:\Users\Mihail\Documents\!frameworks\SDL3-3.2.24\include;C:\Users\Mihail\Documents\!frameworks\glm;C:\Users\Mihail\Documents\!frameworks\glfw-3.4.bin.WIN64\include;C:\Users\Mihail\Documents\!frameworks\glew-2.1.0\include;$(IncludePath)</IncludePath>
     <LibraryPath>C:\Users\Mihail\Documents\!frameworks\SDL3-3.2.24\lib\x64;C:\Users\Mihail\Documents\!frameworks\glew-2.1.0\lib\Release\x64;C:\Users\Mihail\Documents\!frameworks\glfw-3.4.bin.WIN64\lib-vc2022;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -137,17 +137,21 @@
   <ItemGroup>
     <ClCompile Include="src\core\camera.cpp" />
     <ClCompile Include="src\core\launcher.cpp" />
+    <ClCompile Include="src\core\event_handler\mouse_movement.cpp" />
     <ClCompile Include="src\core\rendering_frame.cpp" />
+    <ClCompile Include="src\core\main_window.cpp" />
     <ClCompile Include="src\main.cpp" />
-    <ClCompile Include="src\objects\place.cpp" />
     <ClCompile Include="src\shader\shader_gen.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\core\camera.h" />
+    <ClInclude Include="src\core\event_handler\mouse_movement.h" />
     <ClInclude Include="src\core\rendering_frame.h" />
-    <ClInclude Include="src\objects\basic_object.h" />
+    <ClInclude Include="src\core\main_window.h" />
+    <ClInclude Include="src\core\world\world_environment.h" />
+    <ClInclude Include="src\objects\basic_primitive.h" />
     <ClInclude Include="src\core\launcher.h" />
-    <ClInclude Include="src\objects\place.h" />
+    <ClInclude Include="src\objects\entity.h" />
     <ClInclude Include="src\shader\shader_gen.h" />
   </ItemGroup>
   <ItemGroup>
